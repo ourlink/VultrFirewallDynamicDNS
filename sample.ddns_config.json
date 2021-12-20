@@ -13,8 +13,10 @@
 		}
 	],
 	"email": {
-			"from_email": "",
+		"smtp_server": "",
+		"login": "",
 		"password": "",
+		"from_email": "",
 		"to_email": ["", ""],
 		"from_name": ""
 	}

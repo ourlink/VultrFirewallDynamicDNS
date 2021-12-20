@@ -37,7 +37,7 @@ you can set `email or in global or for each firewall`
 
 
 ### Looping
-to loop forever with a configurable delay between polls edit `ddns.py` and set `loop_forever` to `True`. The delay time is configurable,
+To loop forever with a configurable delay between polls edit `ddns.py` and set `loop_forever` to `True`. The delay time is configurable,
 defaulting to 60 seconds.
 
 
@@ -54,17 +54,18 @@ Add a new action to start a program and browse to your Python executable. Add th
 ### Changelog
 
 #### 20/12/2021 - molexx
-update to vultr API v2
-configurable smtp server
-configurable smtp login/username
-optional loop forever
-more error handling, include info in the email
-don't require logging.yaml
-convert to unix format line endings
-add shebang to the top of the file to allow direct execution `./ddns.py`
-support python 3.5 (for older raspberry pi installs)
+- update to vultr API v2
+- configurable smtp server
+- configurable smtp login/username
+- optional loop forever
+- more error handling, include info in the email
+- don't require logging.yaml
+- convert to unix format line endings
+- add shebang to the top of the file to allow direct execution `./ddns.py`
+- support python 3.5 (for older raspberry pi installs)
 
 
 
-molexx forked this from https://github.com/MBRCTV/VultrFirewallDynamicDNS
+molexx forked this from https://github.com/MBRCTV/VultrFirewallDynamicDNS  
+  
 credit for https://github.com/andyjsmith/Vultr-Dynamic-DNS

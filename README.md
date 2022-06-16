@@ -11,12 +11,12 @@ We use this script with over 15 different Vultr VPS servers/firewalls, each with
 
 Assuming you have a Vultr Account (if you don't have one, you can use [our affiliate link](https://www.vultr.com/?ref=9160186-8H) and receive $100 credit for the first 30 days). You'll need an account, VPS Server, firewall, and your personal API token.
 
-* go to the firewall tab, and click 'Add Firewall Group'
-* setup individual firewalls/rules
-  * select the protocol you would like to open for yourself like TCP 
-  * enter the port or range for example `1 - 65535`	
-  * select one source the ip (not important as the script will update it) 
-  * IMPORTANT, add a UNIQUE note to your rule, the script scans the firewall rules for the unique note you assigned. Any rules found that match the rule are updated with the new IP assignment. An example note might be "CHANGE THIS IP". The note is case sensitive.
+* Go to the firewall tab, and click 'Add Firewall Group'
+* Setup individual firewalls/rules
+  * Select the protocol you would like to open for yourself like TCP 
+  * Enter the port or range for example `1 - 65535`	
+  * Select a source IP - example: `My IP` (not important as the script will update it) 
+  * IMPORTANT, add a UNIQUE note to your rule, the script scans the firewall rules for the unique note you assigned. Any rules found that match the note are updated with the new IP assignment. An example note might be "CHANGE THIS IP". The note is case sensitive.
 * save the firewall/rules and assign it to a VPS
 
 
@@ -60,6 +60,7 @@ For Windows, create a task in Task Scheduler to run every 30 minutes. Follow the
 - modified email message body (more details)
 - fixed unix format line endings
 - removed individual firewall email processing, now send one email for the entire script regardless of number of firewall/rules updated
+- working on better logging settings in `sample.logging.yaml`
 
 
 #### 20/12/2021 - molexx

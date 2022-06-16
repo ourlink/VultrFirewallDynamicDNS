@@ -48,11 +48,6 @@ root:
 
 loggers:
   main:
-    handlers: [file, email, error_file]
+    handlers: [file, email]
     propogate: no
-
-
-
-
-
 

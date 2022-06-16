@@ -69,13 +69,13 @@ logger.info("got public ip: %s", ip)
 
 #always run the loop at least once
 loop_again = True
+email_txt = "Processing Firewalls \n"
 
 while loop_again:
     found_count = 0
     uptodate_count = 0
     success_count = 0
     fail_count = 0
-    email_txt = ""
 
     for fw in firewalls:
         api_key = fw.get("api_key")
@@ -103,7 +103,7 @@ while loop_again:
         raw_rules = res_dict['firewall_rules']
         logger.debug("parsed existing rules: %s", raw_rules)
 
-        email_txt = email_txt + "Processing Firewall: %s / Group: %s \n" % (firewallname, firewallgroup)
+        email_txt = email_txt + " %s / Group: %s \n" % (firewallname, firewallgroup)
 
         # Make a new varible with the vultr ip
         v_ip = None
@@ -171,6 +171,8 @@ while loop_again:
 
         #end loop around vultr firewall rules
 
+        email_txt = email_txt + "Completed Processing Firewalls"
+        
         if found_count == 0:
             logger.warning("No rules found with notes '%s'.", notes)
             email_txt = email_txt + "  - No rules found with notes '%s'." % (notes)
@@ -187,7 +189,7 @@ while loop_again:
 
         if updated_count == 0:
             logger.info("  %s rule(s) found with note '%s' were already up-to-date with current ip %s.", found_count, notes, ip)
-            email_txt = "%s rule(s) found with note '%s' were already up-to-date with current ip %s." % (found_count, notes, ip)
+            email_txt = email_txt + "%s rule(s) found with note '%s' were already up-to-date with current ip %s." % (found_count, notes, ip)
             continue
 
     # end loop around configured firewalls

@@ -2,52 +2,48 @@ version: 1
 
 formatters:
   simple:
-    format: '[%(asctime)s] (%(name)s) [%(levelname)s] - %(message)s '
-    datefmt: '%Y-%m-%d %H:%M:%S'
+    format: '[%(asctime)s] [%(levelname)s] - %(message)s '
+    datefmt: '%Y-%m-%d %I:%M:%S %p'
   complex:
     format: '[%(asctime)s] (%(filename)s:%(lineno)s) [%(levelname)s] - %(message)s '
 
 handlers:
   console:
     class: logging.StreamHandler
-    formatter: simple
     level: INFO
+    formatter: simple
     stream: ext://sys.stdout
 
   file:
     class: logging.handlers.TimedRotatingFileHandler
+    level: DEBUG
     formatter: complex
     filename: logging.log
     when: midnight
     backupCount: 3
     interval: 1
-    level: DEBUG
-
 
   email:
     class: logging.handlers.SMTPHandler
+    level: WARNING
     formatter: complex
     mailhost:
-      - imap.gmail.com
+      - smtp.gmail.com
       - 587
     fromaddr: email@gmail.com
     toaddrs:
       - toemail@gmail.com
-    subject: iamp Logging email
+    subject: VultrIP Firewall Issues
     credentials:
       - email@gmail.com
       - pass
     secure:
       -
-    level: WARNING
 
 root:
   level: NOTSET
-  handlers: [console]
-  propogate: yes
+  handlers: [console, file, email]
 
 loggers:
   main:
-    handlers: [file, email]
-    propogate: no
-
+    propogate: True

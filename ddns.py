@@ -96,7 +96,7 @@ while loop_again:
 
         logger.debug("vultr api returns res: %s", res)
         restxt = res.text
-        
+
         logger.debug("vultr api returns body: %s", restxt)
 
         res_dict = json.loads(restxt)
@@ -121,7 +121,7 @@ while loop_again:
 
                 # Continue (no changes) - if Rule IP is already updated
                 if v_ip == ip:
-                    logger.info("  - Rule %s Port: %s is up-to-date with ip %s", rule['id'] , rule['port'], ip)
+                    logger.info("  - Rule %s Port: %s is up-to-date with ip %s \n", rule['id'] , rule['port'], ip)
                     uptodate_count = uptodate_count + 1
                     continue
 
@@ -171,7 +171,7 @@ while loop_again:
 
         #end loop around vultr firewall rules
 
-        email_txt = email_txt + "Completed Processing Firewalls"
+        email_txt = email_txt + " Completed Processing Firewall Rule \n"
         
         if found_count == 0:
             logger.warning("No rules found with notes '%s'.", notes)
